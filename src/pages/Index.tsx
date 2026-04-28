@@ -120,8 +120,8 @@ const Index = () => {
             <span className="text-gradient">in real time.</span>
           </h2>
           <p className="mt-3 text-sm text-muted-foreground sm:text-base">
-            Type in any base — decimal, binary, octal, or hex — and watch the others update instantly,
-            with step-by-step explanations and a live bit visualizer.
+            Type in any base decimal, binary, octal or hex and watch the others update instantly
+            with step by step explanations and a live bit visualizer.
           </p>
           <button
             onClick={() => setPractice((v) => !v)}
