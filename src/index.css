@@ -1,0 +1,221 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Bitexa Design System — Premium dark dev tool with neon accents */
+
+@layer base {
+  :root {
+    /* Deep space dark theme */
+    --background: 222 47% 5%;
+    --foreground: 180 20% 95%;
+
+    --card: 222 40% 8%;
+    --card-foreground: 180 20% 95%;
+
+    --popover: 222 40% 8%;
+    --popover-foreground: 180 20% 95%;
+
+    /* Neon cyan/green primary */
+    --primary: 160 100% 55%;
+    --primary-foreground: 222 47% 5%;
+    --primary-glow: 160 100% 65%;
+
+    --secondary: 217 33% 14%;
+    --secondary-foreground: 180 20% 95%;
+
+    --muted: 217 30% 12%;
+    --muted-foreground: 215 20% 60%;
+
+    --accent: 190 100% 55%;
+    --accent-foreground: 222 47% 5%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 217 33% 16%;
+    --input: 217 33% 14%;
+    --ring: 160 100% 55%;
+
+    --radius: 1rem;
+
+    /* Bit visualizer */
+    --bit-on: 160 100% 55%;
+    --bit-off: 217 33% 18%;
+
+    /* Per-base accents */
+    --base-dec: 280 100% 70%;
+    --base-bin: 160 100% 55%;
+    --base-oct: 35 100% 60%;
+    --base-hex: 190 100% 55%;
+
+    /* Gradients */
+    --gradient-bg: radial-gradient(ellipse at top, hsl(222 47% 10%) 0%, hsl(222 47% 4%) 60%);
+    --gradient-primary: linear-gradient(135deg, hsl(160 100% 55%), hsl(190 100% 55%));
+    --gradient-card: linear-gradient(145deg, hsl(222 40% 9% / 0.8), hsl(222 40% 7% / 0.6));
+    --gradient-text: linear-gradient(135deg, hsl(160 100% 65%), hsl(190 100% 70%));
+
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(160 100% 55% / 0.25);
+    --shadow-card: 0 20px 60px -20px hsl(222 47% 0% / 0.6), 0 0 0 1px hsl(217 33% 16%);
+    --shadow-input-focus: 0 0 0 1px hsl(var(--primary)), 0 0 30px hsl(var(--primary) / 0.25);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .light {
+    /* Premium soft-cream light theme with deep teal/indigo accents */
+    --background: 40 33% 97%;
+    --foreground: 224 40% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 40% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 40% 12%;
+
+    /* Deep emerald-teal primary — premium, high-contrast on cream */
+    --primary: 172 75% 28%;
+    --primary-foreground: 40 33% 98%;
+    --primary-glow: 172 70% 40%;
+
+    --secondary: 40 25% 93%;
+    --secondary-foreground: 224 40% 12%;
+
+    --muted: 40 25% 94%;
+    --muted-foreground: 224 15% 38%;
+
+    /* Indigo accent for contrast against teal */
+    --accent: 232 70% 48%;
+    --accent-foreground: 40 33% 98%;
+
+    --destructive: 0 75% 48%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 20% 86%;
+    --input: 40 25% 93%;
+    --ring: 172 75% 28%;
+
+    --bit-on: 172 75% 32%;
+    --bit-off: 40 20% 88%;
+
+    /* Per-base accents — richer, more saturated for light bg */
+    --base-dec: 270 70% 48%;
+    --base-bin: 172 75% 30%;
+    --base-oct: 25 85% 48%;
+    --base-hex: 232 70% 48%;
+
+    --gradient-bg:
+      radial-gradient(ellipse at top left, hsl(172 60% 92%) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, hsl(232 70% 92%) 0%, transparent 55%),
+      linear-gradient(180deg, hsl(40 35% 98%) 0%, hsl(40 30% 95%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100% / 0.95), hsl(40 30% 98% / 0.85));
+    --gradient-text: linear-gradient(135deg, hsl(172 75% 28%), hsl(232 70% 48%));
+    --gradient-primary: linear-gradient(135deg, hsl(172 75% 28%), hsl(232 70% 48%));
+
+    --shadow-glow: 0 0 40px hsl(172 75% 35% / 0.2);
+    --shadow-card:
+      0 1px 2px hsl(224 40% 12% / 0.04),
+      0 8px 24px -8px hsl(224 40% 12% / 0.1),
+      0 0 0 1px hsl(40 20% 88%);
+  }
+
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar,
+  *::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background: var(--gradient-bg);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: var(--gradient-card);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-card);
+    border-radius: var(--radius);
+  }
+
+  .text-gradient {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .glow-border {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.4) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.4) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbars while keeping scroll functional */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px hsl(var(--primary) / 0.3); }
+  50% { box-shadow: 0 0 40px hsl(var(--primary) / 0.6); }
+}
